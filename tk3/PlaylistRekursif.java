@@ -15,10 +15,22 @@ import java.util.Scanner;
  * ============================================================
  */
 public class PlaylistRekursif {
+    /*
+     * Tujuan: mengubah selisih waktu nanosecond menjadi millisecond.
+     * Base case: tidak memakai rekursi.
+     * Recursive case: tidak memakai rekursi.
+     * Kompleksitas waktu: O(1), karena hanya melakukan satu operasi aritmetika.
+     */
     private static double millis(long startNano, long endNano) {
         return (endNano - startNano) / 1_000_000.0;
     }
 
+    /*
+     * Tujuan: menjalankan analisis rekursif playlist dan mencatat waktu eksekusi.
+     * Base case: mengikuti fungsi rekursif pada PlaylistAnalyzer.
+     * Recursive case: mengikuti fungsi rekursif pada PlaylistAnalyzer.
+     * Kompleksitas waktu: O(n), karena setiap analisis memproses seluruh lagu.
+     */
     private static HasilPengukuran analisisPlaylist(Lagu[] playlist) {
         long mulaiTotal = System.nanoTime();
         double total = PlaylistAnalyzer.totalDurasi(playlist, playlist.length);
@@ -43,6 +55,12 @@ public class PlaylistRekursif {
                 millis(mulaiTerpanjang, selesaiTerpanjang));
     }
 
+    /*
+     * Tujuan: menampilkan hasil total durasi, lagu terpanjang, dan waktu eksekusi.
+     * Base case: tidak memakai rekursi.
+     * Recursive case: tidak memakai rekursi.
+     * Kompleksitas waktu: O(1), karena jumlah data yang ditampilkan tetap.
+     */
     private static void tampilkanHasil(HasilPengukuran hasil) {
         System.out.println();
         System.out.printf("Jumlah lagu      : %d%n", hasil.getJumlahLagu());
@@ -57,6 +75,12 @@ public class PlaylistRekursif {
         System.out.printf("Execution Time (cariDurasiTerpanjang): %.4f ms%n", hasil.getWaktuCariTerpanjang());
     }
 
+    /*
+     * Tujuan: menampilkan tabel waktu eksekusi dari semua hasil pengukuran.
+     * Base case: tidak memakai rekursi.
+     * Recursive case: tidak memakai rekursi.
+     * Kompleksitas waktu: O(m), dengan m sebagai jumlah hasil pengukuran.
+     */
     private static void tampilkanTabelPengukuran(HasilPengukuran[] hasil) {
         System.out.println();
         System.out.println("=== TABEL PENGUKURAN WAKTU EKSEKUSI ===");
@@ -74,6 +98,12 @@ public class PlaylistRekursif {
         System.out.println("+----------------+----------------+-------------------+-------------------------+");
     }
 
+    /*
+     * Tujuan: menampilkan ringkasan base case, growth rate, dan kompleksitas.
+     * Base case: tidak memakai rekursi langsung.
+     * Recursive case: tidak memakai rekursi langsung.
+     * Kompleksitas waktu: O(1), karena jumlah baris analisis tetap.
+     */
     private static void tampilkanAnalisisKompleksitas() {
         System.out.println();
         System.out.println("=== ANALISIS TIME AND GROWTH RATE ===");
@@ -82,6 +112,12 @@ public class PlaylistRekursif {
         System.out.println("cariDurasiTerpanjang() : base case index == 0, growth rate linear, kompleksitas O(n)");
     }
 
+    /*
+     * Tujuan: menjadi titik masuk program dan mengatur alur analisis playlist.
+     * Base case: mengikuti fungsi rekursif yang dipanggil melalui analisisPlaylist().
+     * Recursive case: mengikuti fungsi rekursif yang dipanggil melalui analisisPlaylist().
+     * Kompleksitas waktu: O(n), karena input dan analisis memproses n lagu.
+     */
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
